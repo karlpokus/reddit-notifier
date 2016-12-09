@@ -1,0 +1,27 @@
+{
+  "name": "reddit-notifier",
+  "version": "0.1.0",
+  "description": "alerts from subreddit of your choice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karlpokus/reddit-notifier.git"
+  },
+  "keywords": [
+    "notify",
+    "reddit",
+    "subreddit"
+  ],
+  "author": "Karl Pokus <karl.pokus@gmail.com> (https://github.com/karlpokus)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karlpokus/reddit-notifier/issues"
+  },
+  "homepage": "https://github.com/karlpokus/reddit-notifier#readme",
+  "dependencies": {
+    "snoocore": "^3.3.1"
+  }
+}

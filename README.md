@@ -1,7 +1,13 @@
 # reddit-notifier
 > Notify [e-mail] when [word] is posted on [subreddits]
 
-That's the gists of it. Get notified when posts on subreddits include certain topics of your choosing. A work in progress. Note: As it stands you need to host the bot yourself and include api keys for mailgun and reddit in `settings.json` in root.
+That's the gists of it. Get notified when posts on subreddits include certain topics of your choosing. A work in progress. As it stands you need to host the bot yourself and include api keys for mailgun and reddit in `settings.json` in root.
+
+Note! FWIW you don't need authentication it seems. Just add user-agent and tack `.json` at the end of an URL
+```
+# curl -A user-agent url
+$ curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" https://www.reddit.com/r/node/new.json
+```
 
 # usage
 ```javascript

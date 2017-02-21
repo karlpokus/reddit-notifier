@@ -1,16 +1,11 @@
-var Notifier = require('./lib/notifier'),
-    settings = require('./settings'),
-    bot = new Notifier({
-      // reddit api keys
-      "key": settings.key,
-      "secret": settings.secret,
-      "username": settings.username,
-      "password": settings.password,
-      // query
-      query: {
-        sub: "/r/node/new",
-        regex: 'bot'
-      }
-    });
+var notifier = require('./lib/notifier'),
+    sub = 'https://www.reddit.com/r/node/new.json',
+    targets = 'node';
 
-bot.test();
+notifier(sub, targets, function(err, res){
+  if (err) {
+    return console.error(err);
+  }
+  
+  console.log(res);
+});

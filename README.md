@@ -1,44 +1,27 @@
 # reddit-notifier
-> Notify [e-mail] when [word] is posted on [subreddits]
+> Notify [e-mail] when [word] is posted on [subreddit]
 
-That's the gists of it. Get notified when posts on subreddits include certain topics of your choosing. A work in progress. As it stands you need to host the bot yourself and include api keys for mailgun and reddit in `settings.json` in root.
+That's the gists of it. Get notified when posts on a subreddit include certain topics of your choosing. A work in progress.
 
-Note! FWIW you don't need authentication it seems. Just add user-agent and tack `.json` at the end of an URL
-```
-# curl -A user-agent url
-$ curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.112 Safari/534.30" https://www.reddit.com/r/node/new.json
-```
+# Requirements
+- A means to get notified like [mailgun](http://www.mailgun.com/)
+- For a free of charge simple working cron I'd pick [webtasks](https://webtask.io/docs/cron)
 
 # usage
 ```javascript
 // index.js
-var Notifier = require('./lib/notifier'),
-    settings = require('./settings'),
-    bot = new Notifier({
-      // reddit api keys
-      "key": settings.key,
-      "secret": settings.secret,
-      "username": settings.username,
-      "password": settings.password,
-      // query
-      query: {
-        sub: "/r/node/new",
-        regex: 'bot' // separate multiple terms with empty space
-      }
-    });
+var notifier = require('./lib/notifier'),
+    sub = 'https://www.reddit.com/r/node/new.json', // use .json to avoid authentication
+    targets = 'bot'; // separate multiple targets by pipes |
 
-// starts cron
-bot.start();
-```
+notifier(sub, targets, function(err, res){
+  // res is an array of matched urls
+});
 
 # TODOs
-- [ ] pick a cron pkg
-- [ ] parallel async calls to multiple subs
-- [ ] mailgun api
-- [ ] options for cron and mailgun
-- [ ] options defaults
-- [ ] npm
-- [ ] some friendly pointers on how to deploy and obtain reddit api keys
+- [ ] parallel async calls across multiple subs
+- [ ] npm maybe
+- [ ] better regex
 
 # Licence
 MIT

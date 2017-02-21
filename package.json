@@ -21,7 +21,5 @@
     "url": "https://github.com/karlpokus/reddit-notifier/issues"
   },
   "homepage": "https://github.com/karlpokus/reddit-notifier#readme",
-  "dependencies": {
-    "snoocore": "^3.3.1"
-  }
+  "dependencies": {}
 }
